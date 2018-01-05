@@ -1,54 +1,61 @@
-<title>吴翱翔的博客</title>
-<center>
-	<h1>吴翱翔的博客</h1>
-	<h2>文章列表</h2>
-	<h3>
-		<a href="DIP-final-exam.html">数字图像处理期末考范围</a>
-		<br />
-		<a href="scrap-ocw-mp4.html">爬取交大「机器人学」全部视频地址</a>
-		<br />
-		<a href="computer-tricks.html">电脑小技巧【持续更新】</a>
-	</h3>
-	<h2>个人技能</h2>
-	<h4>别问我所获奖项，我参加比赛从来没过奖</h4>
-	<h3>技能.网页.JavaScript</h3>
-	<h3>网页搞得还是很烂，就像这个网站一样(这水平怎么当前端狗)</h3>
-	<img src="https://i.loli.net/2017/12/02/5a228738abe45.jpg" alt="cert-1024-4688288.jpg" title="cert-1024-4688288.jpg" style="width: 50%; height: 50%"
-	/>
-	<h3>技能.编程.Python(我的主力编程语言)</h3>
-	<img src="https://i.loli.net/2017/12/02/5a2287fbc7d43.jpg" alt="cert-1073-4688288.jpg" title="cert-1073-4688288.jpg" style="width: 50%; height: 50%"
-	/>
-	<h3>技能.编程.C++</h3>
-	<h4>(学C++是为了研究单片机程序,好像只有Arduino是用C++语法的)</h4>
-	<img src="https://i.loli.net/2017/12/02/5a2288673254b.jpg" alt="cert-1051-4688288.jpg" title="cert-1051-4688288.jpg" style="width: 50%; height: 50%"
-	/>
-	<h2>其它</h2>
-	<h3>
-		<a href="https://github.com/EECSGEEK/EECSGEEK.github.io">网站源代码</a>
-	</h3>
-	<h4>网站的时间信息</h4>
-	<button onclick="lastModifiedTime()">点击显示俺上次提交更新博客的时间</button>
-	<p id="print_lastModified">
-		<br />
-	</p>
-	<button onclick="copyToClipboard('print_lastModified')">Copy Timestamp</button>
+<!DOCTYPE HTML>
+<html>
 
-	<h5>Copyright&copy;2017 China </h5>
-</center>
-<!-- 脚本一般放在head或body最下面，加载顺序最好是HTML->CSS->JS
-  This can improve page load, because HTML display is not blocked by scripts loading
--->
-<script>
-	function copyToClipboard(elementId) {
-		var aux = document.createElement("input");
-		aux.setAttribute("value", document.getElementById(elementId).innerHTML);
-		document.body.appendChild(aux);
-		aux.select();
-		document.execCommand("copy");
-		document.body.removeChild(aux);
-	}
+<head>
+	<link href="./style.css" rel="stylesheet" />
+	<link href="./favicon.ico" rel="icon" />
+	<title>树莓派用ExpressVPN翻墙</title>
+</head>
 
-	function lastModifiedTime() {
-		document.getElementById("print_lastModified").innerHTML = (document.lastModified);
-	}
-</script>
+<body>
+	<h1>在树莓派(RaspberryPi)上使用
+		<br />ExpressVPN翻墙(科学上网)</h1>
+
+	<h2>引子</h2>
+	<blockquote>
+		<pre>
+网上的树莓派翻墙的教程，绝大多数都是用SS，
+因为很多VPN软件都没有树莓派的armvf架构版。
+曾经我也一步一步地在树莓派安装shadowSocks，
+找一些「免费公共」的SS节点，配置一下，结果失败了。
+某日我无意中浏览ExpressVPN的产品中，无意中发现
+这个VPN大厂居然有「树莓派版本」
+	</pre>
+	</blockquote>
+
+	<h2>下载</h2>
+	<pre style="font-size: 125%;">
+ExpressVPN官网，如果不是付费账号登陆
+点来点去都需要你给钱order一份才能跳转到下载页面。
+万般无奈下，只好联系<b>ExpressVPN在线客服</b>
+<img src="./image/expressvpn.png" style="float: left">
+<img src="./image/contact1.png" width="50%" height="50%">
+如图，提供一个「已付费」的ExpressVPN邮箱账号
+客服很热情的给我下载链接
+
+其实你登陆了ExpressVPN后，进入Myaccout主页
+点击GetExpressVPN就能看到各个平台的ExpressVPN
+<img src="./image/product.png" width="50%" height="50%">
+让人惊奇的是，居然有Xbox和PS4(PlayStation版本)
+细心一看ExpressVPN支持的平台还真多啊！
+</pre>
+	<h2>安装与测试</h2>
+	<pre style="font-size: 125%;">
+给树莓派安装ExpressVPN		
+<blockquote>
+sudo dpkg -i expressvpn_1.3.2_armhf.deb
+</blockquote>
+然后在terminal里面用expressvpn登陆账号
+用的是账号中心里面有个叫activation code(类似于激活码)
+
+最后输入
+<big style="color: red">expressvpn connect</big>
+<img src="./image/expressVPN-connect.png">
+至此express安装，配置，连接都完成了，可以全速翻墙了
+	</pre>	
+
+	<h2>附上一张树莓派翻墙上Youtube的图</h2>
+	<img src="./image/connect-to-youtube.png">	
+</body>
+
+</html>
